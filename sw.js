@@ -3,7 +3,15 @@ const ASSETS = [
   '/',
   'index.html',
   'style.css',
-  'script.js'
+  'script.js',
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0',
+  'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200',
+  'https://fonts.maateen.me/solaiman-lipi/font.css',
+  'esha.jpeg',
+  'fazr.jpg',
+  'maghrib.jpg',
+  'zahr.jpg',
+  'achor.jpg'
 ];
 
 
