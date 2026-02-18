@@ -1,0 +1,21 @@
+{
+  "name": "Ramadan Iftar/Sehri Time 2026",
+  "short_name": "Ramadan 2026",
+  "description": "Ramadan timeTable 2026",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#324458",
+  "theme_color": "#324458",
+  "icons": [
+    {
+      "src": "192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

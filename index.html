@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>চাটমোহর উপজেলার রমজানের সময়সূচী ২০২৬</title>
+    <meta name="theme-color" content="#064e3b">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="manifest" href="manifest.json">
+        <link rel="icon" href="favicon.co">
+        <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+        
+        
+        
+    <style>
+        :root {
+            --primary-color: #065f46; 
+            --accent-color: #d97706;  
+            --bg-color: #f0f4f8;
+            --white: #ffffff;
+            --footer-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--bg-color); 
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #064e3b);
+            color: white;
+            padding: 40px 15px 60px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            
+        }
+
+        header h2 { font-size: 1.8rem; margin-bottom: 5px; }
+
+        .container {
+            width: 95%;
+            max-width: 700px;
+            margin: -40px auto 40px;
+            flex: 1; 
+        }
+
+        .today-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .today-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: var(--accent-color);
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timer-box {
+            background: #fffbeb;
+            border: 1px dashed var(--accent-color);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        #countdown { font-weight: 700; color: var(--accent-color); font-size: 1.3rem; }
+
+        .times-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .time-item { padding: 15px; border-radius: 15px; background: #f8fafc; }
+        .time-item.sehri { border-left: 5px solid #ef4444; }
+        .time-item.iftar { border-left: 5px solid #10b981; }
+
+        .table-container {
+            background: white;
+            border-radius: 20px;
+            overflow-x: auto;
+            
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 400px; }
+        thead { background-color: var(--primary-color); color: white; }
+        th, td { padding: 12px 10px; text-align: center; border-bottom: 1px solid #eee; }
+
+        
+        .main-footer {
+            background: var(--footer-bg);
+            color: #cbd5e1;
+            padding: 180px 15px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content p { margin: 5px 0; font-size: 0.95rem; }
+
+        .dev-name {
+            color: #ffd700; 
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer-links { margin-top: 15px; }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .footer-links a:hover { color: #ffd700; }
+
+        @media (max-width: 480px) {
+            header h2 { font-size: 1.5rem; }
+            .time-value { font-size: 1.1rem; }
+            th, td { font-size: 0.8rem; }
+        }
+        
+        
+
+.today {
+    background-color: rgba(6, 95, 70, 0.12) !important; 
+    position: relative;
+    color: var(--primary-color) !important;    font-weight: 700 !important;
+}
+
+
+.today td:first-child {
+    border-left: 4px solid var(--accent-color) !important;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+.today td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+
+.today td {
+    border-bottom: 2px solid rgba(6, 95, 70, 0.2) !important;
+}
+
+
+
+
+.pwa-overlay {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.5); 
+
+    display: none;
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    
+
+}
+
+
+
+
+
+.pwa-modal {
+
+    background: white;
+
+    width: 80%;
+
+    max-width: 400px;
+
+    padding: 20px ;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    position: relative;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+
+    
+
+}
+
+
+
+.pwa-logo img {
+
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+
+    
+
+}
+
+
+
+.pwa-modal h3 {
+
+    color: var(--primary-color);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.pwa-modal p {
+
+    color: #555;
+
+    font-size: 0.95rem;
+
+    margin-bottom: 25px;
+
+    line-height: 1.5;
+
+}
+
+
+
+/* Buttons */
+
+.pwa-buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+
+.install-btn {
+
+    background: linear-gradient(135deg, var(--primary-color), #064e3b);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+
+.install-btn:hover {
+
+    transform: scale(1.02);
+
+}
+
+
+
+.close-btn {
+
+    background: transparent;
+
+    color: #888;
+
+    border: none;
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    
+
+
+
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="pwa-overlay" class="pwa-overlay">
+
+    <div class="pwa-modal">
+
+        <div class="pwa-logo">
+
+            <img src="android-chrome-512x512.png" alt="IftarAndSehriAppLogo">
+
+        </div>
+
+        <h3>অ্যাপটি ইনস্টল করুন</h3>
+
+        <p>সহজেই সেহরি ও ইফতারের অ্যালার্ম পেতে এবং অফলাইনে ব্যবহার করতে আমাদের অ্যাপটি ফোনে সেভ করে রাখুন।</p>
+
+        <div class="pwa-buttons">
+
+            <button id="btn-install" class="install-btn">ইনস্টল করুন</button>
+
+            <button id="btn-close" class="close-btn">পরে ইনস্টল করবো</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+    <header>
+        <h2>মাহে রমজান ২০২৬</h2>
+        <p>সেহরি ও ইফতারের পূর্ণাঙ্গ ক্যালেন্ডার</p>
+    </header>
+
+    <div class="container">
+        <div class="today-card">
+            <div class="location-info">
+                <span class="material-symbols-outlined">person_pin_circle</span>
+                <span id="districtValue">চাটমোহর উপজেলার জন্য প্রযোজ্য</span>
+            </div>
+            <div class="date-display" id="DateToday"style="font-family: 'SolaimanLipi', sans-serif;"></div>
+
+            <div class="timer-box">
+                <span id="countdown">সময় গণনা করা হচ্ছে...</span>
+            </div>
+
+            <div class="times-grid">
+                <div class="time-item sehri">
+                    <div class="time-label">সেহরি শেষ</div>
+                    <div class="time-value" id="todaySahriTime"></div>
+                </div>
+                <div class="time-item iftar">
+                    <div class="time-label">ইফতার শুরু</div>
+                    <div class="time-value" id="todayiftarTime"></div>
+                </div>
+            </div>
+            <style>
+                .salatOrprayerTimeTable{
+                    width: 95%;
+                    height: 50vh;
+                    background-color:#3760AF;
+                    background-image: url('maghrib.jpg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin: 20px auto;
+                    border-radius: 10px;
+                }
+                
+            </style>
+            <div class="salatOrprayerTimeTable" style="display:flex;flex-direction:column;">
+                <div class="lefttextofp" style="float:left;margin:15px 0px 0px 20px;display:flex;align-items:center;color:white">
+                <p style="color:white;font-weight:bold;font-size:20px;">এখন</p> <span class="material-symbols-outlined">chevron_right
+</span> <p id="owaktoname">ফজর</p>
+
+
+
+
+</div>
+<div class="owaktotimetable" style="text-align:left;margin-left:10px">
+    <p style="font-size:15px;color:white;">উক্ত নামাজের আজকের</p>
+    <p style="font-size:15px;color:white;margin-top:-10px">জামাতের সময়ঃ ৬:১৫ মিনিট</p>
+        <p style="font-size:15px;color:white;margin-top:-5px">পরবর্তী ওয়াক্ত,অর্থাৎ <span id="nextwaktoname">...</span> শুরু হতে এখনো সময় বাকি: <span id="owaktohours">১০ ঘন্টা</span> <span id="owaktominutes">১৫ মিনিট</span>
+        <span id="owaktoseconds">১০ সেকেন্ড</span>
+        
+        </p>
+        
+</div>
+
+
+            </div>
+            
+            
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>রমজান</th>
+                        <th>তারিখ</th>
+                        <th>বার</th>
+                        <th>সেহরি</th>
+                        <th>ফজর</th>
+                        <th>ইফতার</th>
+                    </tr>
+                </thead>
+                <tbody id="ramadanTable">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; ২০২৬ মাহে রমজান ক্যালেন্ডার। সর্বস্বত্ব সংরক্ষিত।</p>
+            <p>Developed with ❤️ by <a href="#" class="dev-name">Mohammad Joynal Abedin</a></p>
+            <div class="footer-links">
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+   
+    <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js")
+    .then(registration => {
+      console.log("Service Worker Registered!", registration);
+    })
+    .catch(error => {
+      console.log("Service Worker Registration Failed!", error);
+    });
+}
+        
+        
+        
+        
+        
+        let deferredPrompt;
+
+const pwaOverlay = document.getElementById('pwa-overlay');
+
+const btnInstall = document.getElementById('btn-install');
+
+const btnClose = document.getElementById('btn-close');
+
+
+
+
+window.addEventListener('beforeinstallprompt', (e) => {
+
+
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    
+
+
+
+    setTimeout(() => {
+
+        pwaOverlay.style.display = 'flex';
+
+    }, 1000);
+
+});
+
+
+
+
+
+btnInstall.addEventListener('click', async () => {
+
+    if (deferredPrompt) {
+
+        deferredPrompt.prompt();
+
+        const { outcome } = await deferredPrompt.userChoice;
+
+        if (outcome === 'accepted') {
+
+            console.log('User accepted the install prompt');
+
+        }
+
+        deferredPrompt = null;
+
+        pwaOverlay.style.display = 'none';
+
+    }
+
+});
+
+
+
+
+
+btnClose.addEventListener('click', () => {
+
+    pwaOverlay.style.display = 'none';
+
+});
+
+
+
+
+
+window.addEventListener('appinstalled', () => {
+
+    pwaOverlay.style.display = 'none';
+
+    console.log('PWA installed successfully');
+
+});
+    </script>
+    <script>
+
+const prayerTimes = {
+    "ফজর": { start: "06:00 AM", img: "fazr.jpg" },
+    "যোহর": { start: "1:30 PM", img: "zahr.jpg" },
+    "আসর": { start: "04:45 PM", img: "achor.jpg" },
+    "মাগরিব": { start: "06:05 PM", img: "maghrib.jpg" },
+    "এশা": { start: "07:45 PM", img: "esha.jpeg" }
+};
+
+
+function convertTo24Hour(timeStr) {
+    const [time, modifier] = timeStr.split(' ');
+    let [hours, minutes] = time.split(':');
+    if (hours === '12') hours = '00';
+    if (modifier === 'PM') hours = parseInt(hours, 10) + 12;
+    return `${hours.toString().padStart(2, '0')}:${minutes}`;
+}
+
+function updatePrayerUI() {
+    const now = new Date();
+    const currentTimeString = now.getHours().toString().padStart(2, '0') + ":" + 
+                              now.getMinutes().toString().padStart(2, '0');
+    
+    let currentWakt = "এশা"; 
+    let nextWakt = "ফজর";
+    const keys = Object.keys(prayerTimes);
+
+
+    for (let i = 0; i < keys.length; i++) {
+        const checkTime = convertTo24Hour(prayerTimes[keys[i]].start);
+        if (currentTimeString >= checkTime) {
+            currentWakt = keys[i];
+            nextWakt = keys[(i + 1) % keys.length];
+        }
+    }
+
+
+    const container = document.querySelector('.salatOrprayerTimeTable');
+    container.style.backgroundImage = `url('${prayerTimes[currentWakt].img}')`;
+    document.getElementById('owaktoname').innerText = currentWakt;
+
+document.getElementById('nextwaktoname').innerText = nextWakt;
+    
+    
+    
+        document.querySelector('.owaktotimetable p:nth-child(2)').innerText = 
+        `ওয়াক্ত শুরুর সময়ঃ ${prayerTimes[currentWakt].start}`;
+
+    
+    updateCountdown(nextWakt);
+}
+
+function updateCountdown(nextWaktName) {
+    const now = new Date();
+    const nextTimeStr24 = convertTo24Hour(prayerTimes[nextWaktName].start);
+    const [hours, minutes] = nextTimeStr24.split(':');
+    
+    let nextWaktDate = new Date();
+    nextWaktDate.setHours(parseInt(hours), parseInt(minutes), 0);
+
+    if (nextWaktDate <= now) {
+        nextWaktDate.setDate(nextWaktDate.getDate() + 1);
+    }
+
+    const diff = nextWaktDate - now;
+
+    const h = Math.floor(diff / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('owaktohours').innerText = h + " ঘণ্টা";
+    document.getElementById('owaktominutes').innerText = m + " মিনিট";
+    document.getElementById('owaktoseconds').innerText = s + " সেকেন্ড";
+}
+
+
+setInterval(updatePrayerUI, 1000);
+updatePrayerUI();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
