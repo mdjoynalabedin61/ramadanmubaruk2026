@@ -280,12 +280,16 @@ function convertTo12HourFormat(time) {
 
 
 const now = new Date();
+
+
 let todayDateStr = now.toLocaleDateString('bn-BD', {
-    day: 'numeric', month: 'long'
+    day: '2-digit', 
+    month: 'long'
 }).trim();
 
 
 todayDateStr = todayDateStr.replace("ফেব্রুয়ারী", "ফেব্রুয়ারি");
+
 
 todayDateStr = todayDateStr.replace(/\s+/g, ' ');
 
